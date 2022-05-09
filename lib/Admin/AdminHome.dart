@@ -75,141 +75,153 @@ class _AdminHomeState extends State<AdminHome> {
             ),
           ],
         ),
-        body: Column(
-          children: [
-            Container(
-                margin: EdgeInsets.fromLTRB(0, 10, 250, 0),
-                child: Text(
-                  'Hi Admin..',
-                  style: TextStyle(
-                      color: colors.blue_base,
-                      fontFamily: 'Epilogue',
-                      fontStyle: FontStyle.italic,
-                      fontSize: 23),
-                )),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                  height: 170,
-                  width: 170,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      bool? isNew = true;
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AllGyms(
-                                isNew: isNew,
-                              )));
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'New Gyms ',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        Text(
-                          '500 ',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ],
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      side: BorderSide(
-                        width: 7,
-                        color: colors.blue_base,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                      margin: EdgeInsets.fromLTRB(20, 10, 250, 0),
+                      child: Text(
+                        'Hi Admin..',
+                        style: TextStyle(
+                            color: colors.blue_base,
+                            fontFamily: 'Epilogue',
+                            fontStyle: FontStyle.italic,
+                            fontSize: 30),
+                      )),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 250),
+                    height: 300,
+                    width: 300,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        bool? isNew = true;
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => AllGyms(
+                              isNew: isNew,
+                            ),
+                          ),
+                        );
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'New Gyms ',
+                            style: TextStyle(
+                                fontSize:
+                                    40 * MediaQuery.textScaleFactorOf(context)),
+                          ),
+                          Text(
+                            '500 ',
+                            style: TextStyle(fontSize: 40),
+                          ),
+                        ],
                       ),
-                      shape: CircleBorder(),
-                      padding: EdgeInsets.all(20),
-                      primary: Colors.white, // <-- Button color
-                      onPrimary: colors.blue_base, // <-- Splash color
-                    ),
-                  ),
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 60),
-                  height: 150,
-                  width: 150,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      bool? isNew = false;
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AllGyms(isNew: isNew)));
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Old Gyms ',
-                          style: TextStyle(fontSize: 20),
+                      style: ElevatedButton.styleFrom(
+                        side: BorderSide(
+                          width: 7,
+                          color: colors.blue_base,
                         ),
-                        Text(
-                          '500 ',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ],
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      side: BorderSide(
-                        width: 7,
-                        color: Colors.orange,
+                        shape: CircleBorder(),
+                        padding: EdgeInsets.all(20),
+                        primary: Colors.white, // <-- Button color
+                        onPrimary: colors.blue_base, // <-- Splash color
                       ),
-                      shape: CircleBorder(),
-                      padding: EdgeInsets.all(20),
-                      primary: Colors.white, // <-- Button color
-                      onPrimary: Colors.orange, // <-- Splash color
                     ),
-                  ),
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 30),
-                  height: 120,
-                  width: 120,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => Users()));
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Users ',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        Text(
-                          '500 ',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ],
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      side: BorderSide(
-                        width: 7,
-                        color: Colors.pink,
+                  )
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(right: 250),
+                    height: 250,
+                    width: 250,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        bool? isNew = false;
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => AllGyms(isNew: isNew)));
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Old Gyms ',
+                            style: TextStyle(fontSize: 40),
+                          ),
+                          Text(
+                            '500 ',
+                            style: TextStyle(fontSize: 40),
+                          ),
+                        ],
                       ),
+                      style: ElevatedButton.styleFrom(
+                        side: BorderSide(
+                          width: 7,
+                          color: Colors.orange,
+                        ),
+                        shape: CircleBorder(),
+                        padding: EdgeInsets.all(20),
+                        primary: Colors.white, // <-- Button color
+                        onPrimary: Colors.orange, // <-- Splash color
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 300),
+                    height: 200,
+                    width: 200,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => Users()));
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Users ',
+                            style: TextStyle(fontSize: 40),
+                          ),
+                          Text(
+                            '500 ',
+                            style: TextStyle(fontSize: 40),
+                          ),
+                        ],
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        side: BorderSide(
+                          width: 7,
+                          color: Colors.pink,
+                        ),
 
-                      shape: CircleBorder(),
-                      padding: EdgeInsets.all(20),
-                      primary: Colors.white, // <-- Button color
-                      onPrimary: Colors.pink, // <-- Splash color
+                        shape: CircleBorder(),
+                        padding: EdgeInsets.all(20),
+                        primary: Colors.white, // <-- Button color
+                        onPrimary: Colors.pink, // <-- Splash color
+                      ),
                     ),
-                  ),
-                )
-              ],
-            )
-          ],
+                  )
+                ],
+              )
+            ],
+          ),
         ));
   }
 }

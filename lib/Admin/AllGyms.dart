@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../Admin/GymCardAdmin.dart';
 import '../Styles.dart';
@@ -36,10 +37,16 @@ class _AllGymsState extends State<AllGyms> {
     return Scaffold(
       appBar: AppBar(
         title: Center(
-            child: Text(
-          'New Gyms',
-          style: TextStyle(color: Colors.white, fontFamily: 'Epilogue'),
-        )),
+          child: widget.isNew!
+              ? Text(
+                  'New Gyms',
+                  style: TextStyle(color: Colors.white, fontFamily: 'Epilogue'),
+                )
+              : Text(
+                  'Old Gyms',
+                  style: TextStyle(color: Colors.white, fontFamily: 'Epilogue'),
+                ),
+        ),
         backgroundColor: colors.blue_base,
         elevation: 0,
       ),
@@ -55,19 +62,19 @@ class _AllGymsState extends State<AllGyms> {
                 });
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      ListView.builder(
-                        controller: ScrollController(keepScrollOffset: true),
-                        shrinkWrap: true,
-                        itemCount: _gymsList.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return GymCardAdmin(
-                            gymInfo: _gymsList[index],
-                          );
-                        },
-                      )
-                    ],
+                  child: GridView.builder(
+                    controller: ScrollController(keepScrollOffset: true),
+                    shrinkWrap: true,
+                    itemCount: _gymsList.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return GymCardAdmin(
+                        isNew: widget.isNew!,
+                        gymInfo: _gymsList[index],
+                      );
+                    },
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                    ),
                   ),
                 );
               } else
