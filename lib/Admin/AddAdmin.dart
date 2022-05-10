@@ -12,6 +12,7 @@ class AddAdmin extends StatefulWidget {
   State<AddAdmin> createState() => _AddAdminState();
 }
 
+//
 class _AddAdminState extends State<AddAdmin> {
   Admin _admin = Admin(email: '', initPassword: '', uid: '');
   List<Admin> _adminList = [];
