@@ -60,7 +60,7 @@ class _AllGymsState extends State<AllGyms> {
                 _gymsList.clear();
                 snapshot.data.docs.forEach((element) {
                   _gymsList.add(GymModel.fromJson(element.data()));
-                  ////
+                  //
                 });
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
