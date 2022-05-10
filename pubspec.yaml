@@ -39,6 +39,7 @@ dependencies:
   firebase_storage: ^10.2.15
   ntp: ^2.0.0
   http: ^0.13.4
+  firebase_admin: 
   intl: ^0.17.0
   geolocator: ^8.2.0
   carousel_slider: ^4.1.1
