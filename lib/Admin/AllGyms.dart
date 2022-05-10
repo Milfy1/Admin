@@ -50,6 +50,7 @@ class _AllGymsState extends State<AllGyms> {
         backgroundColor: colors.blue_base,
         elevation: 0,
       ),
+      //
       body: SingleChildScrollView(
         child: SafeArea(
           child: FutureBuilder(
